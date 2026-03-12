@@ -33,7 +33,9 @@ Open Moony → **Settings** → enable **AI Assistant (MCP Server)**.
 
 ### 3. Configure Claude Desktop
 
-Add the following to your Claude Desktop config file and replace the paths with the actual absolute paths on your system.
+Moony's **Settings screen shows the exact config snippet** with the correct paths pre-filled for your system — you can copy it directly from there.
+
+Alternatively, add the following to your Claude Desktop config file manually:
 
 **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`  
 **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
@@ -45,18 +47,15 @@ Add the following to your Claude Desktop config file and replace the paths with 
       "command": "node",
       "args": ["/absolute/path/to/moony-mcp/dist/index.js"],
       "env": {
-        "MOONY_DATA_DIR": "/absolute/path/to/Library/Application Support/com.filipkral.moony-tauri"
+        "MOONY_DATA_DIR": "/absolute/path/to/Moony/data/directory"
       }
     }
   }
 }
 ```
 
-> **Important:** Do not use `~` in JSON paths. Use the full absolute path.
-
-The Moony data directory is typically:
-- **macOS:** `/Users/YOUR_NAME/Library/Application Support/com.filipkral.moony-tauri`
-- **Windows:** `C:\Users\YOUR_NAME\AppData\Roaming\com.filipkral.moony-tauri`
+> **Important:** Do not use `~` in JSON paths. Use the full absolute path.  
+> The exact `MOONY_DATA_DIR` path is shown in Moony → **Settings** → AI Assistant section.
 
 ### 4. Restart Claude Desktop
 
@@ -97,7 +96,7 @@ After restarting, Claude will have access to your Moony financial data. Moony mu
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `MOONY_DATA_DIR` | Yes | Path to the Moony data directory (contains `session.json` when app is unlocked) |
+| `MOONY_DATA_DIR` | Yes | Path to the Moony data directory (contains `session.json` when app is unlocked). The exact path is shown in Moony → Settings → AI Assistant. |
 
 ## Security
 
